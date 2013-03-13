@@ -1,0 +1,14 @@
+﻿@model UserVoice.Widgets.ViewModels.SuggestionsSettingsViewModel
+
+<fieldset>
+  <legend>UserVoice Suggestions Fields</legend>
+            
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ForumId, T("Forum"))
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.ForumId, Model.Forums)
+    </div>
+
+</fieldset>
+

@@ -1,0 +1,34 @@
+﻿ @{
+     UserVoice.Widgets.ViewModels.FeedbackViewModel viewModel = (UserVoice.Widgets.ViewModels.FeedbackViewModel) Model.Feedback;
+ }   
+ <script type="text/javascript">
+    var uvOptions  = {
+                
+        /* required */
+        key: '@viewModel.Account',
+        host: '@viewModel.Host',
+        tab: {
+            @if (!string.IsNullOrEmpty(viewModel.TabLabel)){
+                @:label: '@viewModel.TabLabel',
+            }
+            @if (!string.IsNullOrEmpty(viewModel.TabColor)){
+                @:color: '@viewModel.TabColor',
+            }
+            @if (!string.IsNullOrEmpty(viewModel.TabPosition)){
+                @:position: '@viewModel.TabPosition',
+            }
+            inverted: @viewModel.TabInverted.ToString().ToLower(),
+            enabled: @viewModel.TabEnabled.ToString().ToLower(),
+            },
+
+    };
+                
+    function _loadUserVoice() {
+        var s = document.createElement('script');
+        s.setAttribute('type', 'text/javascript');
+        s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "widget.uservoice.com/@(viewModel.WidgetId).js");
+        document.getElementsByTagName('head')[0].appendChild(s);
+    }
+    _loadSuper = window.onload;
+    window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+</script>

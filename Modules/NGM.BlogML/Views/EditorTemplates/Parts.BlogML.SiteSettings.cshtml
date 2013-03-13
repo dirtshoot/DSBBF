@@ -1,0 +1,16 @@
+@model NGM.BlogML.Models.BlogMLSettingsPartRecord
+@using NGM.BlogML.Models;
+
+<fieldset>
+    <legend>@T("BlogML")</legend>
+    <div>
+        <label for="AttachmentDirectory">@T("Attachment Directory")</label>
+        @Html.EditorFor(m => m.AttachmentDirectory) 
+        @Html.ValidationMessage("AttachmentDirectory", "*")
+    </div>
+    <div>
+        <label for="ExportDirectory">@T("Export Directory")</label>
+        @Html.EditorFor(m => m.ExportDirectory) 
+        @Html.ValidationMessage("ExportDirectory", "*")
+    </div>
+</fieldset>

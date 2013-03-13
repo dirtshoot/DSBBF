@@ -1,0 +1,13 @@
+﻿Name: Date Time Field
+AntiForgery: enabled
+Author: Sébastien Ros
+Website: http://orcharddatetimefield.codeplex.com
+Version: 1.0
+OrchardVersion: 1.1
+Description: The Date Time Field module introduces a new field with Date and Time management functionalities.
+Features:
+    Contrib.DateTimeField:
+        Name: Date Time Field
+        Description: Date and Time fields.
+        Category: Fields
+        Dependencies: Orchard.jQuery, Common, Settings

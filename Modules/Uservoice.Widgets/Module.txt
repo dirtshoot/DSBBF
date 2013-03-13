@@ -1,0 +1,7 @@
+Name: UserVoice Widgets
+AntiForgery: enabled
+Author: Microsoft DPE
+Website: http://uservoicewidgets.codeplex.com/
+Version: 1.1
+OrchardVersion: 1.0
+Description: Contains a series of widgets to display UserVoice feedback and data sources on your site.

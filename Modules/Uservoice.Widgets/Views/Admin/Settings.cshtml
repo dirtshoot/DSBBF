@@ -1,0 +1,48 @@
+﻿@using Orchard.Utility.Extensions;
+
+@{
+    Style.Require("UserVoiceAdmin");   
+}
+
+@model UserVoice.Widgets.ViewModels.SiteSettingsViewModel
+<h1>@Html.TitleForPage(T("UserVoice Settings").ToString())</h1>
+
+@using (Html.BeginForm("SaveSettings", "Admin", new { area = "UserVoice.Widgets" }, FormMethod.Post, new { @class = "uservoice-settings" }))
+{ 
+
+<fieldset>   
+  <label for="Account">
+    @T("Account")
+  </label>
+  <div class="editor-field">
+    @Html.EditorFor(model => model.Account)
+    @Html.ValidationMessageFor(model => model.Account)
+    <span class="hint">@T("The account name is the first part of your UserVoice URL. Example: myaccount")</span>
+  </div>
+
+  <label for="Host">
+    @T("Host")
+  </label>
+  <div class="editor-field">
+    @Html.EditorFor(model => model.Host)
+    @Html.ValidationMessageFor(model => model.Host)
+    <span class="hint">@T("The host is the domain from your UserVoice URL. Example: myaccount.uservoice.com")</span>
+  </div>
+
+  <label for="ApiKey">
+    @T("ApiKey")
+  </label>
+  <div class="editor-field">
+    @Html.EditorFor(model => model.ApiKey)
+    @Html.ValidationMessageFor(model => model.ApiKey)
+    <span class="hint">@T("You API key is aquired from the Settings panel on UserVoice. Create a new API Channel to receive your key.")</span>
+  </div>
+</fieldset>
+    
+  @Html.Hidden("ReturnUrl", Context.Request.ToUrlString()) 
+  @Html.AntiForgeryTokenOrchard() 
+
+  <button class="primaryAction" type="submit">@T("Save")</button>
+
+}
+

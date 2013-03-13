@@ -1,0 +1,43 @@
+﻿@model UserVoice.Widgets.ViewModels.FeedbackSettingsViewModel
+<fieldset>
+    <legend>UserVoice Feedback Widget</legend>
+        @Html.EditorFor(model => model.TabEnabled)
+        <label class="forcheckbox" for="@Html.FieldIdFor(model => model.TabEnabled)">@T("Enable Tab")</label>
+        @Html.ValidationMessageFor(model => model.TabEnabled)
+</fieldset>
+
+<fieldset>
+    <legend>Tab Appearance</legend>
+        <span class="hint">@T("These optional settings apply to the UserVoice tab clicked by users to leave feedback. They allow you to override the settings configured in your")
+        <a target="_blank" href="https://@(Model.Account).uservoice.com/admin/settings#/channels">@T("UserVoice settings")</a>.
+        </span>
+
+        @Html.LabelFor(model => model.WidgetId, T("Widget"))
+        @Html.DropDownListFor(model => model.WidgetId, Model.Widgets)
+        <span class="hint">@T("Choose a widget from the ones created in the Uservoice Settings panel.")
+                </span>
+
+        @Html.LabelFor(model => model.TabPosition, T("Position"))
+        @Html.DropDownListFor(model => model.TabPosition, Model.TabPositions)
+        <span class="hint">@T("Changes the position of the tab that users click to give feedback.")
+                </span>
+
+        @Html.LabelFor(model => model.TabLabel)
+        @Html.TextBoxFor(model => model.TabLabel)
+        @Html.ValidationMessageFor(model => model.TabLabel)
+        <span class="hint">@T("Changes the label displayed on the tab.")
+                </span>
+
+        @Html.LabelFor(model => model.TabColor)
+        @Html.TextBoxFor(model => model.TabColor)
+        @Html.ValidationMessageFor(model => model.TabColor)
+        <span class="hint">@T("This will override the color of the tab.")
+                </span>
+
+        @Html.EditorFor(model => model.TabInverted)
+        <label class="forcheckbox" for="@Html.FieldIdFor(model => model.TabInverted)">@T("Invert Tab")</label>
+        @Html.ValidationMessageFor(model => model.TabInverted)
+        <span class="hint">@T("If checked, will invert the colors of the tab.")
+                </span>
+
+</fieldset>

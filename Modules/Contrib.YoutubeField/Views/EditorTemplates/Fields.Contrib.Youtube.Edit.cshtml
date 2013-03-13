@@ -1,0 +1,24 @@
+﻿@model Contrib.YoutubeField.ViewModels.YoutubeFieldViewModel
+@using System.Web.Mvc.Html
+@using Orchard.Mvc.Html
+@using Orchard.Utility.Extensions;
+
+<label for="@Html.FieldIdFor(m => m.Name)">@Model.Name</label>
+
+<fieldset>
+    @Html.LabelFor(m => m.Url, T("Url"))
+    @Html.TextBoxFor(m => m.Url, new { @class = "text textMedium" })
+    @Html.ValidationMessageFor(m => m.Url, "*")
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Width, T("Width"))
+    @Html.TextBoxFor(m => m.Width, new { @class = "text text-small" })
+    @Html.ValidationMessageFor(m => m.Width, "*")
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.Height, T("Height"))
+    @Html.TextBoxFor(m => m.Height, new { @class = "text text-small" })
+    @Html.ValidationMessageFor(m => m.Height, "*")
+</fieldset>

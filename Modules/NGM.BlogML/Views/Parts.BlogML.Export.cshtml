@@ -1,0 +1,11 @@
+@using NGM.BlogML.Extensions;
+@using NGM.BlogML.ViewModels;
+@using NGM.BlogML.Models;
+@using NGM.BlogML;
+@using Orchard.ContentManagement;
+
+@if (AuthorizedFor(Permissions.ExportBlog)) {
+	<div class="manage">
+		<a href="@Url.BlogExport((ContentItem)Model.ContentPart.ContentItem)" class="add button primaryAction">@T("Export using BlogML")</a>
+	</div>
+}

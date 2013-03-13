@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="I hope this is what shows on g+ share">
+<title>My Music Mashup</title>
+<link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&v2' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="lib/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen">
+</head>
+
+<body style="font-family: 'Love Ya Like A Sister', cursive;">
+<p><a href="default.html">Dirtshoot's Media Mashup</a> | Visit <a href="https://plus.google.com/111057735012721504933/posts" target="_blank">My Google+ Profile</a></p>
+<h1>DirtShoot @ Justin.tv</h1>
+<p><span style="padding-top:10px;">
+  <object type="application/x-shockwave-flash" height="496" width="594" id="jtv_flash" data="http://www.justin.tv/widgets/live_embed_player.swf?start_volume=0.5&amp;backgroundImage=&amp;channel=dirtshoot&amp;hostname=www.justin.tv&amp;auto_play=false" bgcolor="#000000">
+    <param name="allowFullScreen" value="true" />
+    <param name="allowScriptAccess" value="always" />
+    <param name="allowNetworking" value="all" />
+    <param name="movie" value="http://www.justin.tv/widgets/live_embed_player.swf" />
+    <param name="flashvars" value="start_volume=0.5&amp;backgroundImage=&amp;channel=dirtshoot&amp;hostname=www.justin.tv&amp;auto_play=true" />
+  </object>
+</span></p>
+<p>Putzin around with: <strong>web fonts, jQuery, fancybox</strong></p>
+<script>
+$(document).ready(function() {
+	$("a.group").fancybox({
+				'width' : '70%',
+				'height' : '80%',
+				'transitionIn' : 'elastic',
+				'transitionOut' : 'elastic',
+				'type' : 'iframe'
+	});
+});
+  </script>
+</body>
+</html>

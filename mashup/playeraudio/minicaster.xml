@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<config version="1T" xmlns="http://www.draftlight.net/dnex/config/ns/1T/">
+<mp3cast>
+  <mount>http://216.55.143.161:14227/;</mount>
+  <website>https://plus.google.com/111057735012721504933/posts</website>
+  <title>DirtShoot Rodeo - Best of Garage, Psychedelic, Blues Rock, Punk, Jazz Fusion</title>
+</mp3cast>
+<init autoplay="1" volume="50" reload="5" xfade="0" />
+</config>

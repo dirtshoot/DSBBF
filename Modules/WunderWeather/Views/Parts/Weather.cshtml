@@ -1,0 +1,24 @@
+﻿
+
+<div id="CurrentWeather">
+    <p>
+        <span id="Location"><strong>@T("Observation Location")</strong>: @Model.Location<br /></span>
+        <span id="Icon"><img alt="icon" src="@Model.WeatherMessage.Icons[7]" /><br /></span>
+        <span id="Weather">@Model.WeatherMessage.Weather<br /></span>
+        <span id="Temperature"><strong>@T("Temperature")</strong>: @Model.WeatherMessage.Temperature<br /></span>
+        <span id="RelativeHumidity"><strong>@T("Relative Humidity")</strong>: @Model.WeatherMessage.RelativeHumidity<br /></span>
+        <span id="Wind"><strong>@T("Wind")</strong>: @Model.WeatherMessage.Wind<br /></span>
+        <span id="WindDir"><strong>@T("Wind Dir")</strong>: @Model.WeatherMessage.WindDir<br /></span>
+        <span id="WindDegrees"><strong>@T("Wind Degrees")</strong>: @Model.WeatherMessage.WindDegrees<br /></span>
+        <span id="WindMph"><strong>@T("Wind Mph")</strong>: @Model.WeatherMessage.WindMph<br /></span>
+        <span id="WindGustMph"><strong>@T("Wind Gust Mph")</strong>: @Model.WeatherMessage.WindGustMph<br /></span>
+        <span id="Pressure"><strong>@T("Pressure")</strong>: @Model.WeatherMessage.Pressure<br /></span>
+        <span id="Dewpoint"><strong>@T("Dewpoint")</strong>: @Model.WeatherMessage.Dewpoint<br /></span>
+        <span id="Windchill"><strong>@T("Windchill")</strong>: @Model.WeatherMessage.Windchill<br /></span>
+        <span id="Visibility"><strong>@T("Visibility")</strong>: @Model.WeatherMessage.VisibilityMi<br /></span>
+        <span id="Forecast_url"><a href="@Model.WeatherMessage.Forecast_url" target="_blank">@T("Forecast")</a><br /></span>
+        <span id="History_url"><a href="@Model.WeatherMessage.History_url" target="_blank">@T("History")</a><br /></span>
+        <span id="Ob_url"><a href="@Model.WeatherMessage.Ob_url" target="_blank">@T("Location") @Model.WeatherMessage.ObservationLocation</a><br /></span>
+        <span id="Logo"><img alt="Wunderground icon" src="@Model.WeatherMessage.Logo_url" /></span>
+    </p>
+</div>

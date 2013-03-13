@@ -1,0 +1,85 @@
+﻿@using FeaturedItemSlider.Models;
+
+@{
+    Script.Require("jQuery");
+    Style.Include("FeaturedItems.css");
+    Script.Include("easySlider1.7.js");
+
+    bool isFirstItem = true;
+}
+
+@using (Script.Head()) {
+    <style type="text/css">
+        .featureSlider li { height:@(Model.Group.GroupHeight)px; width:@(Model.Group.GroupWidth)px; background-color:#@(Model.Group.BackgroundColor); }
+        .featureSlider li h2, .featureSlider li h3, .featureSlider li h2 a, .featureSlider l1 p.slideNumbers { color:#@(Model.Group.ForegroundColor) !important; }
+        .featureSlider li span { width:@(Model.Group.ImageWidth)px; height:@(Model.Group.ImageHeight)px; }
+        .featureSlider li span img, .featureSlider li span a img { width:@(Model.Group.ImageWidth)px; height:@(Model.Group.ImageHeight)px; }
+        ol#controls li.current a { background-color: #@(Model.Group.ForegroundColor); }
+        .featureSlider li p { position: relative; top:@(Model.Group.GroupHeight - 25)px; }
+    </style>
+}
+
+@if (Model.FeaturedItems.Count > 0) 
+{
+    <div class="featureSlider">
+        <ul style="color:#@Model.Group.ForegroundColor">
+            @foreach (FeaturedItemViewModel featuredItem in Model.FeaturedItems)
+            {
+                string itemClass = isFirstItem ? "" : "hiddenItem";
+                bool itemIsLinked = !String.IsNullOrWhiteSpace(featuredItem.LinkUrl);
+                <li class="@itemClass">
+                    <span>
+                    @if (itemIsLinked) {
+                        @:<a href="@featuredItem.LinkUrl">
+                    }
+                    @if (!string.IsNullOrWhiteSpace(featuredItem.ImagePath)) {
+                        @Html.Image(featuredItem.ImagePath, "", null)
+                    }
+                    @if (itemIsLinked) {
+                        @:</a>
+                    }
+                    </span>
+                    @if (Model.Group.ShowSlideNumbers) {
+                        <p class="slideNumbers">@featuredItem.SlideNumber of @Model.FeaturedItems.Count</p>
+                    }
+                    <h2>
+                    @if (itemIsLinked) {
+                        @:<a href="@featuredItem.LinkUrl">
+                    }
+                    @Html.Raw(featuredItem.Headline)
+                    @if (itemIsLinked) {
+                        @:</a>
+                    }
+                    </h2>
+                    <h3>
+                        @Html.Raw(featuredItem.SubHeadline)
+                    </h3>
+
+                </li>
+                isFirstItem = false;
+            }
+        </ul>
+    </div>
+
+    using (Script.Foot())
+    {
+        if (Model.FeaturedItems.Count > 1)
+        {
+            <script type="text/javascript">
+            //<![CDATA[
+                $(function () {
+                    $("article.widget-featured-item-slider-widget").css({ 'width': '@(Model.Group.GroupWidth)px' }).css({ 'height': '@(Model.Group.GroupHeight)px' });
+                    $(".featureSlider").easySlider({
+                        auto: true,
+                        continuous: true,
+                        numeric: true,
+                        speed: @Model.Group.SlideSpeed,
+                        pause: @Model.Group.SlidePause
+                    });
+                    $(".featureSlider ul li").removeClass('hiddenItem');
+                });
+            //]]>
+            </script>
+        }
+    }
+}

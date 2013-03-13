@@ -1,0 +1,18 @@
+﻿@model Contrib.Taxonomies.Settings.TaxonomyFieldSettings
+
+    <fieldset>
+        <label>@T("Select a taxonomy")</label>  
+        <select id="@Html.FieldIdFor(m => m.TaxonomyId)" name="@Html.FieldNameFor(m => m.TaxonomyId)">
+            @Html.SelectOption(-1, false, T("Choose a taxonomy ...").ToString())
+            @foreach ( var taxonomy in Model.Taxonomies.OrderBy(t => t.Name) ) {
+                @Html.SelectOption(taxonomy.Id, Model.TaxonomyId == taxonomy.Id, taxonomy.Name)
+            }
+        </select> <br />
+
+        @Html.CheckBoxFor(m => m.LeavesOnly) <label class="forcheckbox" for="@Html.FieldIdFor(m => m.LeavesOnly)">@T("Restrict selectable elements to leaves only")</label>  
+        <br />
+        @Html.CheckBoxFor(m => m.SingleChoice) <label class="forcheckbox" for="@Html.FieldIdFor(m => m.SingleChoice)">@T("Allow only one term to be selected")</label>  
+
+        @Html.ValidationMessageFor(m => m.TaxonomyId)
+        
+    </fieldset>

@@ -1,0 +1,15 @@
+﻿@model Contrib.ChoiceListField.Settings.ChoiceListFieldSettings
+@using Contrib.ChoiceListField.Settings;
+
+<fieldset>
+    <label for="@Html.FieldIdFor(m => m.Options)"><b>@T("Choice list options (semicolon-delimited)")</b></label>
+	@Html.EditorFor(m => m.Options)
+    @Html.ValidationMessageFor(m => m.Options)
+
+	<label><b>List Mode</b></label>
+	<div class="editor-field">
+		<label>@Html.RadioButton("ListMode", "radio", (Model.ListMode == "radio"))Edit using radio buttons</label>
+		<label>@Html.RadioButton("ListMode", "dropdown", (Model.ListMode == "dropdown"))Edit using drop-down list</label>
+	</div>
+
+</fieldset>

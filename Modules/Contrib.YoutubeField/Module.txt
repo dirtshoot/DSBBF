@@ -1,0 +1,9 @@
+Name: Youtube Field
+AntiForgery: enabled
+Author: Andre Rodrigues
+Website: http://orchardyoutubefield.codeplex.com/
+Version: 0.91
+OrchardVersion: 1.0
+Description: The Youtube Field module introduces a new field with youtube playing functionalities.
+FeatureDescription: The Youtube field.
+Category: Fields

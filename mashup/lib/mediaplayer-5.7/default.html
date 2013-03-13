@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="swfobject.js"></script>
+</head>
+
+<body>
+<div id="player"></div>
+<script type="text/javascript">
+var so = new SWFObject('mediaplayer.swf', 'streambaby', '600', '20', '7');
+so.addVariable('type', 'sound');
+//so.addVariable('type', 'mp3');
+// Shoutcast stream - Brap.FM
+so.addVariable('file', 'http://212.72.165.26:9418/;stream.nsv');
+so.write('player');
+</script>
+</body>
+</html>

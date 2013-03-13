@@ -1,0 +1,13 @@
+﻿<Placement>
+  <Place Fields_Contrib_Youtube_Edit="Content:2.5"/>
+
+  <Match DisplayType="SummaryAdmin">
+    <Place Fields_Contrib_Youtube="-"/>
+  </Match>
+
+  <Match DisplayType="Summary">
+    <Place Fields_Contrib_Youtube="-"/>
+  </Match>
+
+  <Place Fields_Contrib_Youtube="Content:before"/>
+</Placement>

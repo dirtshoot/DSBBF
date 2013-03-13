@@ -1,0 +1,16 @@
+﻿.uservoice-widget li
+{
+    list-style: none;
+  
+}
+
+.uservoice-widget ol
+{
+    margin: 0px;
+}
+
+.votes, .comments 
+{
+    display: inline;
+    margin-right: 1em;
+}

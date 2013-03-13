@@ -1,0 +1,48 @@
+﻿@model Contrib.Hyperlink.ViewModels.HyperlinkFieldViewModel
+@using Orchard.Utility.Extensions;
+
+<fieldset>
+	<legend>@Model.Name</legend>
+
+	<div class="editor-label">
+		<label for="@Html.FieldIdFor(m => Model.Link)" >@T("URL")</label>
+	</div>
+	<div class="editor-field">
+		@Html.TextBoxFor(m => m.Link)
+		@Html.ValidationMessageFor(m=>m.Link)
+	</div>
+
+	<div class="editor-field">
+		@Html.CheckBoxFor(m => m.OpenInNewTab)
+		<label for="@Html.FieldIdFor(m => Model.OpenInNewTab)" class="forcheckbox">@T("Open in new tab?")</label>
+	</div>
+
+	<div style="margin-left: 20px">
+		<span class="hyperlink-editor-advanced closed"><i>@T("Advanced link options")</i></span>
+		<fieldset>
+			<div class="editor-label">
+				<label for="@Html.FieldIdFor(m => Model.DisplayText)" >@T("Display text (optional)")</label>
+			</div>
+			<div class="editor-field">
+				@Html.TextBoxFor(m => m.DisplayText)
+			</div>
+
+			<div class="editor-label">
+				<label for="@Html.FieldIdFor(m => Model.Title)" >@T("Link title (optional)")</label>
+			</div>
+			<div class="editor-field">
+				@Html.TextBoxFor(m => m.Title)
+			</div>
+		</fieldset>
+	</div>
+</fieldset>
+
+@using(Script.Foot()) {
+<script type="text/javascript">    
+//<![CDATA[
+   (function ($) {
+        $(".hyperlink-editor-advanced").expandoControl(function(controller) { return controller.next(); }, { key: "N42", path: "/OrchardLocal/" });
+    })(jQuery);
+//]]>
+</script>
+}

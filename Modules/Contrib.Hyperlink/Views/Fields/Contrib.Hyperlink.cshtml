@@ -1,0 +1,6 @@
+﻿@using Orchard.Utility.Extensions;
+
+<p class="text-field">
+@Model.Model.Name: @if ( !string.IsNullOrWhiteSpace(Model.Model.Link) ) {
+<a href="@Model.Model.Link" @if ( !string.IsNullOrWhiteSpace(Model.Model.Title) ) { <text>title="@Model.Model.Title"</text> } @if ( Model.Model.OpenInNewTab ) { <text>target="_blank"</text> } > @if ( !string.IsNullOrWhiteSpace(Model.Model.DisplayText) ) { @Model.Model.DisplayText } else { @Model.Model.Link } </a> }
+</p>

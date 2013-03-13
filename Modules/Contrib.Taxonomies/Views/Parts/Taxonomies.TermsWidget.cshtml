@@ -1,0 +1,32 @@
+﻿@using Orchard.Utility.Extensions;
+@using Contrib.Taxonomies.Models;
+@using Contrib.Taxonomies.Helpers;
+
+@{
+    Style.Include("taxonomy.css");
+    int level=-1;
+}
+
+<div class="taxonomy-toc">
+	@foreach (Contrib.Taxonomies.Models.TermPart term in Model.Terms) {
+		if(term.GetLevels() > level) {
+			level++;
+			@:<ul class="terms">
+		}
+		else if(term.GetLevels() < level) {
+			level--;
+			@:</ul>
+		}
+		else {
+			@:</li>
+		}
+
+		@:<li>
+			@Html.ItemDisplayLink((string)term.Name, term.ContentItem)
+	}
+        
+		</li>
+	@for (int i = 0; i < level; i++) {
+	@:</ul>
+	}
+</div>

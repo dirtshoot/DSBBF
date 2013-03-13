@@ -1,0 +1,12 @@
+﻿@{
+    string group = Model.ContentPart.Name;
+    
+    int numberOfItems = Model.NumberOfItems;
+    string items = numberOfItems == 1 ? " Item" : " Items";
+    string linkText = numberOfItems.ToString() + items;
+}
+<ul class="pageStatus">
+    <li>
+        @Html.ActionLink(linkText, "Items", "Admin", new { groupName = group}, null) |&nbsp;
+    </li>
+</ul>

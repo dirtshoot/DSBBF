@@ -1,0 +1,35 @@
+﻿@model Contrib.MediaPickerField.Fields.MediaPickerField
+@using Orchard.Utility.Extensions;
+@using Contrib.MediaPickerField.Settings;
+
+@{
+    Script.Require("jQuery").AtFoot();
+    var settings = Model.PartFieldDefinition.Settings.GetModel<MediaPickerFieldSettings>();
+}
+
+<fieldset>
+    <label for="@Html.FieldIdFor(m => m.Url)">@Model.Name.CamelFriendly()</label>
+    @Html.TextBoxFor(m => m.Url, new { @class = "textMedium", @readonly = "readonly" }) <span id="btn-@Html.FieldIdFor(m => m.Url)" class="button">@T("Browse")</span>
+    <span class="hint">@settings.Hint</span>
+</fieldset>
+
+@using(Script.Foot()) {
+<script type="text/javascript">
+//<![CDATA[
+    jQuery('#btn-@Html.FieldIdFor(m => m.Url)').click(function () {
+        jQuery('#btn-@Html.FieldIdFor(m => m.Url)').trigger("orchard-admin-pickimage-open", {
+            img: null,
+            uploadMediaPath: 'images',
+            callback: function (data) {
+                var applicationPath = '@Url.RequestContext.HttpContext.Request.ApplicationPath.ToLower()';
+                if (!/\/$/.test(applicationPath)) {
+                    applicationPath += '/';
+                }
+                var url = '~/' + data.img.src.substr(applicationPath.length);
+                jQuery('#@Html.FieldIdFor(m => m.Url)').val(url);
+            }
+        });
+    });
+//]]>
+</script>
+}

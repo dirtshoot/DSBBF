@@ -1,0 +1,12 @@
+﻿Name: Taxonomies
+AntiForgery: enabled
+Author: Sébastien Ros
+Website: http://orchardtaxonomies.codeplex.com
+Version: 0.9
+OrchardVersion: 1.0.0
+Description: The taxonomy module is providing custom categorization of arbitrary content types. 
+Features:
+    Contrib.Taxonomies:
+        Name: Taxonomies
+        Description: Categorize a content item.
+        Category: Content

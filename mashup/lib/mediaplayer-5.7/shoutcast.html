@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+	<script type="text/javascript" src="jwplayer.js"></script>
+
+</head>
+
+<body>
+<div id="container">Loading the player...</div>
+<!--var s1 = new SWFObject("videos/player.swf","ply","427","260","9");
+s1.addParam("allowfullscreen","false");
+s1.addParam("wmode", "transparent");
+s1.addParam("allowscriptaccess","always");
+s1.addVariable('file', 'trailersmall.mov');
+s1.addVariable('image', 'images/player-bg.png');
+s1.addVariable('fullscreen','false');
+s1.addVariable('menu','false');
+s1.addVariable('autostart', 'false');
+s1.addVariable('controlbar', 'over');
+s1.addVariable('icons', 'false');-->
+
+<script type="text/javascript">
+    jwplayer("container").setup({
+        flashplayer: 'player.swf',
+            height: 260,
+            width: 476,
+			controlbar: 'bottom',
+			allowfullscreen: false,
+			fullscreen: false,
+			menu: false,
+			icons: false,
+            //image: 'ehcs.jpg',
+			//skin: 'skins/simple/simple.zip',			
+            provider: "rtmp",
+            streamer: 'rtmp://174.59.108.44:1935/shoutcast/',
+			file: 'shoutcast.stream',
+			autostart: true
+    });
+</script>
+</body>
+</html>

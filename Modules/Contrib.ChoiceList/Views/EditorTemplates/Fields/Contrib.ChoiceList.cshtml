@@ -1,0 +1,27 @@
+﻿@model Contrib.ChoiceList.ViewModels.ChoiceListFieldViewModel
+@using Orchard.Utility.Extensions;
+
+<fieldset>
+	<legend>@Model.Name</legend>
+
+	@if( Model.ListMode == "radio" )
+	{
+		foreach (var option in Model.Options.Split(';'))
+		{
+			if( string.IsNullOrWhiteSpace(option) )
+			{
+				<label>@Html.RadioButton("SelectedValue", "", string.IsNullOrWhiteSpace(Model.SelectedValue))<i>unset</i></label>
+			
+			}
+			else
+			{
+				<label>@Html.RadioButton("SelectedValue", option, (option == Model.SelectedValue))@option</label>
+			}
+		}
+	}
+	else
+	{
+		@Html.DropDownListFor(m=>m.SelectedValue, new SelectList(Model.Options.Split(';'), Model.SelectedValue))
+		@Html.ValidationMessageFor(m=>m.SelectedValue)
+	}
+</fieldset>

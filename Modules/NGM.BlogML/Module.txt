@@ -1,0 +1,13 @@
+﻿Name: BlogML
+AntiForgery: enabled
+Author: Nicholas Mayne
+Website: http://www.themayneissue.com
+Version: 0.8.1
+OrchardVersion: 1.0.0
+Description: A module to allow the importing and exporting of the Blog Content Type thru the BlogML interface.
+Features:
+    NGM.BlogML:
+        Name: BlogML
+        Description: Import and Export.
+        Category: Content Publishing
+        Dependencies: Orchard.Blogs, Orchard.Comments, Orchard.Tags

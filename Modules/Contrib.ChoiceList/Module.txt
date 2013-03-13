@@ -1,0 +1,12 @@
+﻿Name: Choice list
+AntiForgery: disabled
+Author: Arian Kulp
+Website: http://orchardchoicelist.codeplex.com
+Version: 1.0.0
+OrchardVersion: 0.8.0
+Description: The ChoiceList module introduces a new field to store multiple-choice value items (drop-down list) as custom types.  You can specify a set of options (Draft;Submitted;Approved;Denied) and the field must contain one of those values.
+Features:
+    Contrib.ChoiceList:
+        Description: Choice list fields.
+        Category: Fields
+        Dependencies: Orchard.jQuery, Common, Settings

@@ -1,0 +1,9 @@
+﻿<Placement>
+  <Place Fields_Contrib_DateTime_Edit="Content:2.5"/>
+
+  <Match DisplayType="SummaryAdmin">
+    <Place Fields_Contrib_DateTime="Content"/>
+  </Match>
+
+  <Place Fields_Contrib_DateTime="Content:after"/>
+</Placement>

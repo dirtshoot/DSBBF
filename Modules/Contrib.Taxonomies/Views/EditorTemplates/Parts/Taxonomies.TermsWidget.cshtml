@@ -1,0 +1,6 @@
+﻿@model Contrib.Taxonomies.ViewModels.TaxonomyWidgetViewModel
+<fieldset>
+    @Html.LabelFor(m => m.SelectedTaxonomyId, T("For Taxonomy"))
+    @Html.DropDownListFor(m => m.SelectedTaxonomyId, Model.AvailableTaxonomies)
+	<span class="hint">@T("Show the terms for which taxonomy? ")</span>
+</fieldset>

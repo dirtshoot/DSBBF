@@ -1,0 +1,12 @@
+Name: Featured Item Slider
+AntiForgery: enabled
+Author: NimblePros
+Website: http://bitbucket.org/nimblepros/orchard-featureditemslider
+Version: 1.3.0
+OrchardVersion: 1.0
+Description: Adds a new content type called FeaturedItem, which includes an image and a headline, and optionally a sub-headline and link URL. Also includes a FeaturedItemsWidget for displaying the featured items using a jQuery slider. This module depends on the Contrib.MediaPickerField module.
+Features:
+    FeaturedItemSlider:
+        Description: Adds a new content type called FeaturedItem, which includes an image and a headline, and optionally a sub-headline and link URL. Also includes a FeaturedItemsWidget for displaying the featured items using a jQuery slider.
+		Category: Widget
+		Dependencies: Contrib.MediaPickerField

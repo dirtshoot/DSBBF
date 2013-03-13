@@ -1,0 +1,14 @@
+﻿@model WunderWeather.Models.WeatherPart
+
+<fieldset>
+  <legend>Location Field</legend>
+            
+  <div class="editor-label">
+    @Html.LabelFor(model => model.Location)
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.Location)
+    @Html.ValidationMessageFor(model => model.Location)
+  </div>
+            
+</fieldset>

@@ -1,0 +1,77 @@
+﻿@model FeaturedItemSlider.Models.FeaturedItemGroupPart
+
+@{
+    Script.Include("colorpicker.js");
+    Style.Include("colorpicker.css");
+}
+@using (Script.Head()) {
+    <style type="text/css">
+        fieldset.featuredItems { padding:6px 0 6px 10px; margin:10px 0 12px 0; border: 1px solid #dbdbdb; width: 50%; }
+    </style>
+}
+
+<div>
+    <p>A Feature Group is a collection of Feature Items that may be placed in any zone of your site.
+    The settings of your feature group define the width and height of each feature item.
+    You may add as many feature items to a group. Only one feature item will display at a time and a new feature will slide into place every few seconds.</p>
+    <fieldset class="featuredItems">
+        <legend>Display Properties</legend>
+        <label for="@Html.FieldIdFor(m=>m.Name)">Name:</label>
+        @Html.TextBoxFor(m=>m.Name)
+        <label for="@Html.FieldIdFor(m=>m.GroupWidth)">Group Width:</label>
+        @Html.TextBoxFor(m => m.GroupWidth, new { maxlength = "5" })
+        <span class="hint">This is the overall width of one slide in the widget</span>
+        <label for="@Html.FieldIdFor(m=>m.GroupHeight)">Group Height:</label>
+        @Html.TextBoxFor(m => m.GroupHeight, new { maxlength = "5" })
+        <span class="hint">This is the overall height of one slide in the widget</span>
+        <label for="@Html.FieldIdFor(m=>m.ImageWidth)">Image Width:</label>
+        @Html.TextBoxFor(m => m.ImageWidth, new { maxlength = "5" })
+        <span class="hint">This is the width for the image portion of a slide (should not be greater than the Group Width)</span>
+        <label for="@Html.FieldIdFor(m=>m.ImageHeight)">Image Height:</label>
+        @Html.TextBoxFor(m => m.ImageHeight, new { maxlength = "5" })
+        <span class="hint">This is the height for the image portion of a slide (should not be greater than the Group Height)</span>
+        <label for="@Html.FieldIdFor(m=>m.BackgroundColor)">Text Area Background Color:</label>
+        @Html.TextBoxFor(m => m.BackgroundColor, new { maxlength = "7" })
+        <label for="@Html.FieldIdFor(m=>m.ForegroundColor)">Text Foreground Color:</label>
+        @Html.TextBoxFor(m => m.ForegroundColor, new { maxlength = "7" })
+    </fieldset>
+    <fieldset class="featuredItems">
+        <legend>Slide Behavior</legend>
+        <label for="@Html.FieldIdFor(m=>m.SlideSpeed)">Slide Speed:</label>
+        @Html.TextBoxFor(m => m.SlideSpeed, new { maxlength = "9" })
+        <span class="hint">This is the number of milliseconds it will take for one slide to transition to the next</span>
+        <label for="@Html.FieldIdFor(m=>m.SlidePause)">Slide Pause:</label>
+        @Html.TextBoxFor(m => m.SlidePause, new { maxlength = "9" })
+        <span class="hint">This is the number of milliseconds a slide will be diplayed</span>
+        @Html.CheckBoxFor(m => m.ShowSlideNumbers)
+        <label for="@Html.FieldIdFor(m => m.ShowSlideNumbers)" class="forcheckbox">Show slide numbers</label>
+        <span class="hint">This determines if the slide number and total slides are displayed on each slide (e.g. 1 of 5)</span>
+    </fieldset>
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+    //<![CDATA[
+        $(function () {
+            $("#BackgroundColor, #ForegroundColor").ColorPicker({
+                onBeforeShow: function () {
+                    $(this).ColorPickerSetColor(this.value);
+                },
+                onShow: function (colpkr) {
+                    $(colpkr).fadeIn(300);
+                    return false;
+                },
+                onSubmit: function (hsb, hex, rgb, el) {
+                    $(el).val(hex);
+                    $(el).ColorPickerHide();
+                },
+                onHide: function (colpkr) {
+		            $(colpkr).fadeOut(300);
+		            return false;
+	            }
+            });
+        });
+    //]]>
+    </script>
+}

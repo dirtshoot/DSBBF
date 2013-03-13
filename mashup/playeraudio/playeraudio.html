@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="I hope this is what shows on g+ share">
+<title>My Music Mashup</title>
+<link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&v2' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="lib/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen">
+</head>
+
+<body style="font-family: 'Love Ya Like A Sister', cursive;">
+<p><a href="../default.html">Dirtshoot's Media Mashup</a> | Visit <a href="https://plus.google.com/111057735012721504933/posts" target="_blank">My Google+ Profile</a></p>
+<h1>Dirtshoot's Radio</h1>
+<object id="fmp256" type="application/x-shockwave-flash" data="minicaster.swf" width="180" height="70">
+  <param name="movie" value="minicaster.swf" />
+  <param name="wmode" value="transparent" />
+</object>
+<script language="JavaScript">
+<!--
+    function getObject(_x) {
+	// used to locate the Flash asset in the DOM. Works reliably on FF, IE and Safari.
+	return document.getElementById(_x);
+    }
+    window.onunload = function() {
+	// stops audio when browser moves to a new page or closes. Helps stop a crash in Safari.
+        getObject("fmp256").playpause(0);
+    }
+    function setconfig(_url) {
+	// sends Flash a new config file URL.
+	getObject("fmp256").setconfig(_url);
+    }
+    function toggle() {
+	// changes between play and pause. To force audio to stop use '0' in the function.
+	getObject("fmp256").playpause(1);
+    }
+
+	// the following two functions should be removed for a public production website.
+    function xtrace(_st) {
+	// sends text from Flash to the on-screen debugging display (if used)
+  	getObject("xtracef").t.value += _st + '\n';
+    }
+    function clearTrace() {
+	// removes all text from the debugging display (if used)
+	getObject("xtracef").t.value = "";
+    }
+// -->
+</script>
+<script>
+
+$(document).ready(function() {
+		$("a.group").fancybox({
+				'width' : '70%',
+				'height' : '80%',
+				'transitionIn' : 'elastic',
+				'transitionOut' : 'elastic',
+				'type' : 'iframe'
+	});
+});
+  </script>
+</body>
+</html>

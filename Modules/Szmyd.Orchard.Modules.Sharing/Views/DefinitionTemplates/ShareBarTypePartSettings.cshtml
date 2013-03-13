@@ -1,0 +1,12 @@
+﻿@model Szmyd.Orchard.Modules.Sharing.Settings.ShareBarTypePartSettings
+    <fieldset>
+    <div>
+        @Html.LabelFor(m => m.Mode, T("Share bar display style"))
+        @Html.DropDownListFor(m => m.Mode, 
+        new System.Web.Mvc.SelectList(Model.AvailableModes, "Value", "Text", (int)Model.Mode))
+        <span class="hint">
+            @T("Preview of available modes is available here: ")&nbsp;<a href="http://www.addthis.com/gallery">AddThis gallery</a>.
+        </span>
+    </div>
+    </fieldset>
+

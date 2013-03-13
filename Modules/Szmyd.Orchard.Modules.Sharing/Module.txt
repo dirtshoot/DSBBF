@@ -1,0 +1,12 @@
+Name: Content sharing
+AntiForgery: enabled
+Author: Piotr Szmyd
+Website: http://www.szmyd.com.pl
+Version: 1.0.0
+OrchardVersion: 1.0.0
+Description: Adds content sharing functionality via AddThis sharing service.
+Features:
+    Szmyd.Orchard.Modules.Sharing:
+        Description: Adds content sharing functionality via AddThis sharing service.
+        Name: Content sharing
+        Category: Social

@@ -1,0 +1,12 @@
+﻿Name: Hyperlink
+AntiForgery: disabled
+Author: Arian Kulp
+Website: http://orchardhyperlink.codeplex.com
+Version: 1.0.2
+OrchardVersion: 0.8.0
+Description: The Hyperlink module introduces a new field to store hyperlinks as custom types.  Includes URL, label, title, and target.
+Features:
+    Contrib.Hyperlink:
+        Description: Hyperlink fields.
+        Category: Fields
+        Dependencies: Orchard.jQuery, Common

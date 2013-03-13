@@ -1,0 +1,40 @@
+﻿@{
+    Style.Require("UserVoiceWidget");   
+}
+
+<div class="uservoice-widget">
+
+<ol class="ideas content-items">
+    @foreach (var suggestion in Model.Suggestions.suggestions)
+    { 
+     <li class="suggestion has-layout" id="suggestion-@suggestion.id">
+        <article class="content-item">
+            <header>
+                <h1>
+                    <a class="contextual" href="@suggestion.url" target="_blank">
+                        @suggestion.title
+                    </a>
+                </h1>
+            </header>
+            <footer>
+            <div class="metadata">
+                <div class="votes">
+                    @suggestion.vote_count
+                    <span class="label has-layout">
+                        votes
+                    </span>
+                </div>
+                <div class="comments">
+                    @suggestion.comments_count
+                    <span class="label has-layout">
+                        comments
+                    </span>
+                </div>       
+            </div>
+            </footer>
+        </article>
+     </li>
+    }
+</ol>
+
+</div>

@@ -1,0 +1,50 @@
+﻿@model FeaturedItemSlider.Models.FeaturedItemEditViewModel
+@using System.Linq;
+
+@{
+    Script.Require("jQuery");
+}
+
+<div>
+    <fieldset>
+        <label for="Headline">Headline:</label>
+        <input id="Headline" name="Headline" class="large text" type="text" value="@Model.FeaturedItem.Headline" />
+        <label for="SubHeadline">Sub-Headline:</label>
+        <input id="SubHeadline" name="SubHeadline" class="large text" type="text" value="@Model.FeaturedItem.SubHeadline" />
+        <label for="LinkUrl">Link URL:</label>
+        <input id="LinkUrl" name="LinkUrl" class="large text" type="text" value="@Model.FeaturedItem.LinkUrl" />
+        <label for="SlideOrder">Slide Order:</label>
+        <input id="SlideOrder" name="SlideOrder" class="small text" type="text" value="@Model.FeaturedItem.SlideOrder" />
+        <span class="hint">Use the Slide Order to control the order in which the slides are loaded into the widget.</span>
+        <br />
+        <label for="GroupName">Group:</label>
+        @Html.DropDownList("GroupName", new SelectList(Model.Groups.Select(g => g.Name), Model.FeaturedItem.GroupName))
+    </fieldset>
+</div>
+
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+    //<![CDATA[
+        var groupImageWidths = {};
+        var groupImageHeights = {};
+
+        @foreach(var group in Model.Groups) {
+            <text>groupImageWidths["@group.Name"] = "@group.ImageWidth";</text>
+            <text>groupImageHeights["@group.Name"] = "@group.ImageHeight";</text>
+        }
+
+        $(function () {
+            $("#GroupName").bind('change', groupChanged);
+            groupChanged();
+        });
+
+        function groupChanged() {
+            var groupName = $("#GroupName").val();
+            if (groupName) {
+                $("span.hint:first").text("For the group '" + groupName + "' the picture should be " + groupImageWidths[groupName] + " x " + groupImageHeights[groupName]);
+            }
+        }
+    //]]>
+    </script>
+}
